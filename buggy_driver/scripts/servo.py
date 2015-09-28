@@ -12,7 +12,7 @@ duty_servo_max = 12
 duty_servo_span = duty_servo_max - duty_servo_min
 
 # Motor PPM configuration
-motor_pin = "P8_14"
+motor_pin = "P9_14"
 duty_motor_min = 6
 duty_motor_max = 12
 duty_motor_span = duty_motor_max - duty_motor_min
@@ -22,7 +22,7 @@ def setServoAngle(angle_f):
     PWM.set_duty_cycle(servo_pin, duty)
 
 def setMotorSpeed(speed_f):
-    duty = ((-speed_f/2 + 0.5) * duty_motor_span + duty_motor_min)
+    duty = ((speed_f/2 + 0.5) * duty_motor_span + duty_motor_min)
     PWM.set_duty_cycle(motor_pin, duty)
     
 def callback(data):
