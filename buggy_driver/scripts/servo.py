@@ -18,7 +18,7 @@ def callback(data):
         PWM.cleanup()
         return
     angle_f = float(angle)
-    duty = ((angle_f + 1.0) * duty_span + duty_min)
+    duty = ((-angle_f/2 + 0.5) * duty_span + duty_min)
     PWM.set_duty_cycle(servo_pin, duty)
 
 def servo():
